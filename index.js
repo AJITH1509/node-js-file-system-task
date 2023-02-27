@@ -1,4 +1,3 @@
-const { response } = require("express");
 const express = require("express");
 const app = express();
 const fs = require("fs");
@@ -10,7 +9,7 @@ app.get("/", (req, res) => {
   res.send("hello sir / Mam, Have a Nice Day");
 });
 
-//for create date-time.txt files
+//api for create date-time.txt files
 
 app.post("/createFile", (req, res) => {
   const timestamp = new Date().toString();
@@ -26,6 +25,8 @@ app.post("/createFile", (req, res) => {
     return res.send("File created successfully");
   });
 });
+
+// api for get datas of each file
 
 app.get("/files", (req, res) => {
   fs.readdir(folderPath, (err, files) => {
